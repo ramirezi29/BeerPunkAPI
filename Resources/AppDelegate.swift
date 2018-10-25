@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        /*
+         
+         BeerController.getBeerForFood(byUsing: "pizza") { (beers) in
+         for beer in beers! {
+         print(beer.name)
+         }
+         }
+         */
+        
         return true
     }
 
