@@ -18,6 +18,20 @@ struct Beer: Decodable {
     
     let ingredients: Ingredients
     
+    // NOTE: - Computer Property to grab our ingredients
+    //
+    
+    var ingredientsString: String {
+     
+        var ingredientsArray: [String] = []
+        for malt in ingredients.malts {
+            ingredientsArray.append(malt.name)
+    }
+        // NOTE: -  seperator: "camma space"
+           // classy way -> Compact Map
+        return ingredients.malts.compactMap {$0.name}.joined(separator: ", ")
+    }
+    
     enum CodingKeys: String, CodingKey {
         case name
         case tagline
@@ -46,3 +60,15 @@ struct Ingredients: Decodable {
 struct Malt: Decodable {
     let name: String
 }
+
+//var ingredientsString: String {
+//
+//
+//    //Brute Force -> for loop
+//    var ingredientsArray: [String] = []
+//    for malt in ingredients.malts {
+//        ingredientsArray.append(malt.name)
+//    }
+//    // NOTE: -  seperator: "camma space"
+//    return ingredientsArray.joined(separator: ", ")
+//}

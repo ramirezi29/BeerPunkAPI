@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		477D45FC218223D400B48E9F /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D45FB218223D400B48E9F /* BeerModel.swift */; };
 		477D4600218227A200B48E9F /* BeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D45FF218227A200B48E9F /* BeerController.swift */; };
+		477D4602218233BC00B48E9F /* BeerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D4601218233BC00B48E9F /* BeerTableViewController.swift */; };
+		477D46042182344000B48E9F /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D46032182344000B48E9F /* BeerDetailViewController.swift */; };
 		47DABAE521821F890071C9CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DABAE421821F890071C9CA /* AppDelegate.swift */; };
 		47DABAE721821F890071C9CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DABAE621821F890071C9CA /* ViewController.swift */; };
 		47DABAEA21821F890071C9CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47DABAE821821F890071C9CA /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		477D45FB218223D400B48E9F /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
 		477D45FF218227A200B48E9F /* BeerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerController.swift; sourceTree = "<group>"; };
+		477D4601218233BC00B48E9F /* BeerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewController.swift; sourceTree = "<group>"; };
+		477D46032182344000B48E9F /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 		47DABAE121821F890071C9CA /* PunkBeerAPI_iOS22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PunkBeerAPI_iOS22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47DABAE421821F890071C9CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47DABAE621821F890071C9CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		477D45FE2182272100B48E9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				477D4601218233BC00B48E9F /* BeerTableViewController.swift */,
+				477D46032182344000B48E9F /* BeerDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -182,7 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47DABAE721821F890071C9CA /* ViewController.swift in Sources */,
+				477D46042182344000B48E9F /* BeerDetailViewController.swift in Sources */,
 				477D4600218227A200B48E9F /* BeerController.swift in Sources */,
+				477D4602218233BC00B48E9F /* BeerTableViewController.swift in Sources */,
 				47DABAE521821F890071C9CA /* AppDelegate.swift in Sources */,
 				477D45FC218223D400B48E9F /* BeerModel.swift in Sources */,
 			);

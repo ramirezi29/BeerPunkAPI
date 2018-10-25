@@ -12,14 +12,19 @@
         <!--Root View Controller-->
         <scene sceneID="ewE-tD-zas">
             <objects>
-                <tableViewController id="wTx-PK-S9h" sceneMemberID="viewController">
+                <tableViewController id="wTx-PK-S9h" customClass="BeerTableViewController" customModule="PunkBeerAPI_iOS22" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uy5-Dz-qoy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Evg-GN-4iT">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerCell" textLabel="LYJ-Wf-xap" detailTextLabel="K0K-Fy-kaP" style="IBUITableViewCellStyleSubtitle" id="LGN-fr-SUT">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGN-fr-SUT" id="zPc-dU-eCX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -42,7 +47,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gch-US-BPG" kind="show" trigger="accessoryAction" id="TCJ-bv-bVH"/>
+                                    <segue destination="gch-US-BPG" kind="show" identifier="toDetailVC" id="W8s-vh-ERB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,31 +72,31 @@
                             </view>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="dAF-or-ekl" id="Z5G-9y-KdN"/>
+                        <outlet property="activityViewOutlet" destination="YrO-c1-3H6" id="B60-e0-OIw"/>
+                        <outlet property="beerSearchBar" destination="Evg-GN-4iT" id="rg6-KH-WTX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT3-ae-hs9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Beer Detail View Controller-->
         <scene sceneID="wXk-vN-PNU">
             <objects>
-                <viewController id="gch-US-BPG" sceneMemberID="viewController">
+                <viewController id="gch-US-BPG" customClass="BeerDetailViewController" customModule="PunkBeerAPI_iOS22" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NeD-9P-HNW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-GN-4iT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="haR-K4-ZYK">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="haR-K4-ZYK">
                                 <rect key="frame" x="27" y="137" width="321" height="509.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6as-2n-Eth">
-                                        <rect key="frame" x="0.0" y="0.0" width="321" height="348"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6as-2n-Eth">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="297"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-eR-PKl">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-eR-PKl">
                                         <rect key="frame" x="0.0" y="356" width="126" height="153.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-f6-ptf">
@@ -106,24 +111,37 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-gt-4a0">
-                                                <rect key="frame" x="0.0" y="133" width="32" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APV" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-gt-4a0">
+                                                <rect key="frame" x="0.0" y="133" width="33" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="aLG-f6-ptf" secondAttribute="bottom" constant="133" id="WLZ-Fl-oRN"/>
+                                            <constraint firstItem="Bd0-gt-4a0" firstAttribute="top" secondItem="gFF-eR-PKl" secondAttribute="top" constant="133" id="n9X-Zh-6xv"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="haR-K4-ZYK" firstAttribute="centerY" secondItem="NeD-9P-HNW" secondAttribute="centerY" id="OOz-9a-Ozx"/>
-                            <constraint firstItem="haR-K4-ZYK" firstAttribute="centerX" secondItem="NeD-9P-HNW" secondAttribute="centerX" id="Yi9-Rt-HLW"/>
+                            <constraint firstItem="62m-K1-6rB" firstAttribute="trailing" secondItem="haR-K4-ZYK" secondAttribute="trailing" constant="27" id="02b-Hs-ymr"/>
+                            <constraint firstItem="haR-K4-ZYK" firstAttribute="leading" secondItem="62m-K1-6rB" secondAttribute="leading" constant="27" id="30M-Bx-MSj"/>
+                            <constraint firstItem="62m-K1-6rB" firstAttribute="bottom" secondItem="haR-K4-ZYK" secondAttribute="bottom" constant="20.5" id="CAI-WS-EeO"/>
+                            <constraint firstItem="62m-K1-6rB" firstAttribute="bottom" secondItem="Bd0-gt-4a0" secondAttribute="bottom" constant="20.5" id="Lv6-3u-2fv"/>
+                            <constraint firstItem="haR-K4-ZYK" firstAttribute="top" secondItem="62m-K1-6rB" secondAttribute="top" constant="73" id="QbK-uI-AwR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="62m-K1-6rB"/>
                     </view>
+                    <connections>
+                        <outlet property="apvLabel" destination="Bd0-gt-4a0" id="mze-iU-868"/>
+                        <outlet property="beerImageView" destination="6as-2n-Eth" id="VgU-gT-Cmv"/>
+                        <outlet property="beerNameLabel" destination="aLG-f6-ptf" id="ajA-OG-Kdo"/>
+                        <outlet property="ingredientsLabel" destination="4Mz-XQ-D0O" id="p7S-qu-ldj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDR-JV-99B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
