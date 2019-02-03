@@ -10,7 +10,6 @@ import Foundation
 
 struct Beer: Decodable {
     
-    
     let name: String
     let tagline: String
     let imageURL: URL?
@@ -19,16 +18,13 @@ struct Beer: Decodable {
     let ingredients: Ingredients
     
     // NOTE: - Computer Property to grab our ingredients
-    //
-    
     var ingredientsString: String {
-     
+        
         var ingredientsArray: [String] = []
         for malt in ingredients.malts {
             ingredientsArray.append(malt.name)
-    }
+        }
         // NOTE: -  seperator: "camma space"
-           // classy way -> Compact Map
         return ingredients.malts.compactMap {$0.name}.joined(separator: ", ")
     }
     
@@ -38,16 +34,8 @@ struct Beer: Decodable {
         case imageURL = "image_url"
         case abv
         case ingredients
-    
     }
 }
-    
-//    var ingredientNames: [String] {
-//        return ingredients.map{$0.malts.name}
-//    }
-//}
-
-   // NOTE: - ingredients is the key to a dictionary
 
 struct Ingredients: Decodable {
     let malts: [Malt]
@@ -61,6 +49,7 @@ struct Malt: Decodable {
     let name: String
 }
 
+// NOTE: - Alt Method
 //var ingredientsString: String {
 //
 //

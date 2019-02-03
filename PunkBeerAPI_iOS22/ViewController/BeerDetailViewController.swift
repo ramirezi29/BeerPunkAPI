@@ -17,7 +17,6 @@ class BeerDetailViewController: UIViewController {
     @IBOutlet weak var beerNameLabel: UILabel!
     @IBOutlet weak var beerImageView: UIImageView!
     
-    
     // MARK: - Landing Pad
     var beer: Beer?
     
@@ -38,7 +37,6 @@ class BeerDetailViewController: UIViewController {
     func updateViews() {
         guard let beer = beer else {return}
         beerNameLabel.text = beer.name
-        // NOTE: - Posible due to flat map in model
         apvLabel.text = "APV:\(beer.abv)"
         ingredientsLabel.text = "Ingredients: \(beer.ingredientsString)"
     }

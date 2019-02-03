@@ -13,11 +13,11 @@ class BeerTableViewController: UITableViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityViewOutlet: UIView!
     @IBOutlet weak var beerSearchBar: UISearchBar!
+    
     // MARK: - Funte de Verdad
     var beers: [Beer] = []
     
     // MARK: - Outlets
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,9 @@ class BeerTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return beers.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath)
@@ -47,18 +46,17 @@ class BeerTableViewController: UITableViewController {
     
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailVC" {
             // Step: Get the destiantion and the index path that was tapped
-           guard let destiantionVC = segue.destination as? BeerDetailViewController,
-            let indexPath = tableView.indexPathForSelectedRow else {return}
+            guard let destiantionVC = segue.destination as? BeerDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else {return}
             // Step: Set Landing pad
             // refrence to the beers row
             let beer = beers[indexPath.row]
             destiantionVC.beer = beer
         }
-
     }
 }
 
@@ -83,6 +81,5 @@ extension BeerTableViewController: UISearchBarDelegate {
                 self.activityViewOutlet.isHidden = true
             }
         }
-       
     }
 }

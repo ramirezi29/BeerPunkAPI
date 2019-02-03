@@ -21,9 +21,6 @@ class BeerController {
     static func getBeerForFood(byUsing food: String, completion: @escaping  fetchBeersCompletion) {
         
         // Step 1 - Construct the URL
-        
-        
-        
         guard let unwrappedURL = baseURL else {completion(nil); return}
         
         // Step: Create our URL Components bc we need a URL Query ITem
@@ -53,7 +50,6 @@ class BeerController {
         print(builtURL.absoluteString)
         
         // Step 3 - Data Task + Resume
-        
         URLSession.shared.dataTask(with: builtURL) { (data, _, error) in
             if let error = error {
                 print("\n\n🚀 There was an error with fetching beers via dataTask in: \(#file) \n\n \(#function); \n\n\(error); \n\n\(error.localizedDescription) 🚀\n\n")
@@ -65,37 +61,35 @@ class BeerController {
             
             do{
                 // NOTE: - This takes in a generic type with '.decode' in documentation its a <T>. Hey what ever you decode, its of type beer. 
-               let beersFromWeb = try JSONDecoder().decode([Beer].self, from: data)
+                let beersFromWeb = try JSONDecoder().decode([Beer].self, from: data)
                 completion(beersFromWeb)
             } catch {
                 print("\n\n🚀 There was an error with decoding the data in: \(#file) \n\n \(#function); \n\n\(error); \n\n\(error.localizedDescription) 🚀\n\n")
                 completion(nil); return
             }
-            
             }.resume()
     }
     
     // MARK: - Fetch Image
+    
     typealias FetchImageCompletion = (UIImage?) -> Void
     
-   static func getImage(for beer: Beer, completion: @escaping FetchImageCompletion) {
+    static func getImage(for beer: Beer, completion: @escaping FetchImageCompletion) {
         
         // Step 1 Construct the URL
-        
         guard let unwrappedURL = beer.imageURL else {completion(nil); return}
         
         // Step 2 Request *SKipped
-        
         // Step 3 DataTask + Resume
-     URLSession.shared.dataTask(with: unwrappedURL) { (data, _, error) in
-        if let error = error {
-            print("\n\n🚀 There was an error with fething the image in: \(#file) \n\n \(#function); \n\n\(error); \n\n\(error.localizedDescription) 🚀\n\n")
-            completion(nil)
-            return
-        }
-        guard let data = data else {completion(nil); return}
-        let image = UIImage(data: data)
-        completion(image)
-    }.resume()
+        URLSession.shared.dataTask(with: unwrappedURL) { (data, _, error) in
+            if let error = error {
+                print("\n\n🚀 There was an error with fething the image in: \(#file) \n\n \(#function); \n\n\(error); \n\n\(error.localizedDescription) 🚀\n\n")
+                completion(nil)
+                return
+            }
+            guard let data = data else {completion(nil); return}
+            let image = UIImage(data: data)
+            completion(image)
+            }.resume()
     }
 }
